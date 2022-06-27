@@ -1,11 +1,13 @@
 import { CategoriesRepository } from "../repositories/CategoriesRepository";
+import { ICategoriesRepository } from "../repositories/ICategoriesRepository";
 
 interface IRequest {
   name: string;
   description: string;
 }
+//SRP: Single Responsibility Principle
 class CreateCategoryService {
-  constructor(private categoriesRepository: CategoriesRepository) {
+  constructor(private categoriesRepository: ICategoriesRepository) {
     this.categoriesRepository = categoriesRepository;
   }
 
