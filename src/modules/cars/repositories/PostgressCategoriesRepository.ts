@@ -14,7 +14,9 @@ class PostgresCategoriesRepository implements ICategoriesRepository {
   list(): Category[] {
     return null;
   }
-  create({ name, description }: ICreateCategoryDTO): void {}
+  create({ name, description }: ICreateCategoryDTO): void {
+    console.log(name, description);
+  }
 }
 
 export { PostgresCategoriesRepository, ICreateCategoryDTO };
