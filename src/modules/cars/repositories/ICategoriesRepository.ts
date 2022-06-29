@@ -1,10 +1,13 @@
 import { Category } from "../model/Category";
-import { ICreateCategoryDTO } from "./PostgressCategoriesRepository";
 
+interface ICreateCategoryDTO {
+  name: string;
+  description: string;
+}
 interface ICategoriesRepository {
   findByName(name: string): Category;
   list(): Category[];
   create({ name, description }: ICreateCategoryDTO): void;
 }
 
-export { ICategoriesRepository };
+export { ICategoriesRepository, ICreateCategoryDTO };
