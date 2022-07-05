@@ -1,6 +1,18 @@
 version: "3.7"
 
 services:
+  database_apischenduling:
+    image: postgres
+    container_name: database_apischenduling
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=apischenduling
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=apischenduling
+    volumes:
+      - pgdata:/data/postgres
   app:
     build: .
     container_name: apischenduling
@@ -8,3 +20,7 @@ services:
       - "3333:3333"
     volumes:
       - .:/usr/app
+
+volumes:
+  pgdata:
+    driver: local
