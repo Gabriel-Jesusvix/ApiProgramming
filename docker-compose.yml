@@ -6,7 +6,7 @@ services:
     container_name: database_apischenduling
     restart: always
     ports:
-      - "5432:5432"
+      - 5432:5432
     environment:
       - POSTGRES_USER=apischenduling
       - POSTGRES_PASSWORD=admin
@@ -20,6 +20,10 @@ services:
       - "3333:3333"
     volumes:
       - .:/usr/app
+    links:
+      - database_apischenduling
+    depends_on:
+      - database_apischenduling
 
 volumes:
   pgdata:
